@@ -17,4 +17,3 @@ class Platillo:
     def __str__(self):
         return 'Nombre del platillo: %s \nRestaurante: %s \nCategoria: %s \nIngredientes: %s \nDescripcion: %s' % (self.nombre, self.restaurante, self.categoria, self.ingredientes, self.descripcion)
 
-    dasdas
