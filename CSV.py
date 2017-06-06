@@ -1,8 +1,27 @@
-file = open('usuarios.csv','a')
-file.write("\nnuevo;nuevo;nuevo")
-file.close()
-file1 = open('usuarios.csv')
-print(file1.readlines())
+import usuario as usu
+import platillo as pla
+
+def devolverUsuarios():
+    l =  []
+    file = open('usuarios.csv')
+    for line in file:
+        linea = line.split(';')
+        usuario = usu.Usuario(linea[0],linea[1],linea[2],linea[3])
+        l.append(usuario)
+    file.close()
+    return l
+
+def devolverPlatillos():
+    l = []
+    file = open('platillos.csv')
+    for line in file:
+        linea = line.split(';')
+        platillos = pla.Platillo(linea[0], linea[1], linea[2], linea[3], linea[4], linea[5])
+        l.append(platillos)
+    file.close()
+    return l
+# file1 = open('usuarios.csv')
+# print(file1.readlines())
 # for line in file1:
 #     linea = line.split(';')
 #     usuario = linea[0]
@@ -10,4 +29,4 @@ print(file1.readlines())
 #     tipo = linea[2]
 #     print("Usuario: " + usuario + "\nContraseña: " + contraseña + "\nTipo: " + tipo)
 # etc, etc
-file1.close()
+# file1.close()

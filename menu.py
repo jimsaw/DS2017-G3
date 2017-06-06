@@ -38,5 +38,14 @@ def menuPrincipal(usuario):
     else:
         menuCliente()
 
-def iniciarSesion():
-    pass
+# def iniciarSesion():
+#     pass
+
+def busquedaCategoria(listaPlatillos):
+    diccionarioCategorias = {}
+    for i in listaPlatillos:
+        if i.getCategoria() in diccionarioCategorias:
+            diccionarioCategorias[i.getCategoria()] += 1
+        else:
+            diccionarioCategorias[i.getCategoria()] = 1
+    return diccionarioCategorias

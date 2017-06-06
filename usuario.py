@@ -11,7 +11,7 @@ class Usuario:
         self.restaurante = restaurante
 
     def __str__(self):
-        if self.restaurante != "None":
+        if self.restaurante != " none":
             return "Nombre: " + self.nombre + "\nContraseña: " + self.contrasena + "\nTipo: " +  self.tipo + "\nRestaurante: " + self.restaurante
         return "Nombre: " + self.nombre + "\nContraseña: " + self.contrasena + "\nTipo: " + self.tipo
 
@@ -21,3 +21,5 @@ class Usuario:
     def getTipo(self):
         return self.tipo
 
+    def setNombre(self, nombre):
+        self.nombre = nombre
