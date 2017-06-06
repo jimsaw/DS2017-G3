@@ -1,3 +1,4 @@
+import CSV
 def pedirOpcion(a, b):
     while True:
         try:
@@ -14,6 +15,8 @@ def menuCliente():
     2.) Buscar plato 
     3.) Cerrar sesión""")
     opcion = pedirOpcion(1,3)
+    #if opcion == 1:
+
 
 def menuAsistente():
     print("""\n   1.) Agregar platillo
@@ -41,6 +44,8 @@ def menuPrincipal(usuario):
 # def iniciarSesion():
 #     pass
 
+
+#Devuelve diccionario -> clave: Categoria // valor : numero platos
 def busquedaCategoria(listaPlatillos):
     diccionarioCategorias = {}
     for i in listaPlatillos:
@@ -49,3 +54,25 @@ def busquedaCategoria(listaPlatillos):
         else:
             diccionarioCategorias[i.getCategoria()] = 1
     return diccionarioCategorias
+
+#Recibiendo un diccionario, lista su categoria con sus platos
+def listarCategoria(diccionarioCategorias):
+    for i in diccionarioCategorias:
+        print("Categoria: " + i + "  Numero de platos: ", diccionarioCategorias[i])
+
+
+#Recibe una categoria y valida que tipo de usuario es, mostrando los datos pertenecientes a cada uno
+def mostrarPlatos(categoria, listaPlatillos, usuario):
+    if usuario.getTipo() == "cliente":
+        for i in listaPlatillos:
+            if i.getCategoria() == categoria:
+                print("Nombre del Plato: " + i.getNombre() + "  Restaurante: " + i.getRestaurante())
+    else:
+        for i in listaPlatillos:
+            if i.getRestaurante == usuario.getRestaurante:
+                print("Nombre del Plato: " + i.getNombre() + "   Restaurante: " + i.getRestaurante())
+
+def mostrarPlatillos(listaPlatillos, nombre):
+    for i in listaPlatillos:
+        if i.getNombre() == nombre:
+            print(i)

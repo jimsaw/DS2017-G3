@@ -21,5 +21,9 @@ class Usuario:
     def getTipo(self):
         return self.tipo
 
+    def getRestaurante(self):
+        return self.restaurante
+
     def setNombre(self, nombre):
         self.nombre = nombre
+

@@ -19,3 +19,7 @@ class Platillo:
 
     def getCategoria(self):
         return self.categoria
+    def getNombre(self):
+        return self.nombre
+    def getRestaurante(self):
+        return self.restaurante

@@ -9,5 +9,6 @@ usu.setNombre("Jose")
 l = CSV.devolverPlatillos()
 for i in l:
     print(i)
-print(me.busquedaCategoria(l))
+dicc = me.busquedaCategoria(l)
+me.listarCategoria(dicc)
 #me.menuPrincipal(usu)
