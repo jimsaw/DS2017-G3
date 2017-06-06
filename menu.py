@@ -1,4 +1,4 @@
-import CSV
+import csv
 def pedirOpcion(a, b):
     while True:
         try:
