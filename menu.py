@@ -89,15 +89,12 @@ def login(usuario, passw,lista):# la lista que ubicamos aqui es la que cargammos
     return -1
 
 def devolverUsuariosContrasena(): #devuelve una lista con las tuplas de usuario y contraseña
-    l = []
-    file = open('usuarios.csv')
-    for line in file:
-        linea = line.split(';')
-        usuario = usu.Usuario(linea[0], linea[1], linea[2], linea[3])
-        pas = usuario.getContrasena()
-        l.append((usuario.getNombre(), pas))
-    file.close()
-    return l
+    h = []
+    l = csv.devolverUsuarios()
+    for i in l:
+        a = (i.getNombre(), i.getContrasena())
+        h.append(a)
+    return h
 
 def iniciarSesion():
 
