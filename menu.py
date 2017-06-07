@@ -1,4 +1,6 @@
 import csv
+import usuario as usu
+
 def pedirOpcion(a, b):
     while True:
         try:
@@ -41,8 +43,7 @@ def menuPrincipal(usuario):
     else:
         menuCliente()
 
-# def iniciarSesion():
-#     pass
+
 
 
 #Devuelve diccionario -> clave: Categoria // valor : numero platos
@@ -54,6 +55,7 @@ def busquedaCategoria(listaPlatillos):
         else:
             diccionarioCategorias[i.getCategoria()] = 1
     return diccionarioCategorias
+
 
 #Recibiendo un diccionario, lista su categoria con sus platos
 def listarCategoria(diccionarioCategorias):
@@ -76,3 +78,43 @@ def mostrarPlatillos(listaPlatillos, nombre):
     for i in listaPlatillos:
         if i.getNombre() == nombre:
             print(i)
+
+def login(usuario, passw,lista):# la lista que ubicamos aqui es la que cargammos del archivo con la funcion devolver ususarioContrasena, es la lista inicial
+    for i in range(len(lista)):
+        if usuario in lista[i][0] and lista[i][0] == usuario:
+            if passw in lista[i][1] and lista[i][1] == passw:
+                return 1
+            else:
+                return 0
+    return -1
+
+def devolverUsuariosContrasena(): #devuelve una lista con las tuplas de usuario y contraseña
+    l = []
+    file = open('usuarios.csv')
+    for line in file:
+        linea = line.split(';')
+        usuario = usu.Usuario(linea[0], linea[1], linea[2], linea[3])
+        pas = usuario.getContrasena()
+        l.append((usuario.getNombre(), pas))
+    file.close()
+    return l
+
+def iniciarSesion():
+
+    registeredUser = devolverUsuariosContrasena() #Lista con todos los usuarios y contraseñas, son los datos iniciales
+    continuar = True
+    while(continuar):
+        usuario = str(input('User: '))
+        passw = str(input('Password: '))
+
+        if login(usuario, passw,registeredUser) == 1:
+            print('Welcome ', usuario)
+            continuar = False
+        elif login(usuario, passw,registeredUser) == 0:
+            print("\n\tPassword does not match...\n")
+            print('Ingrese de nuevo.')
+            print('')
+        else:
+            print('ERROR! User is not registered.')
+            print('Ingrese de nuevo.')
+            print('')
