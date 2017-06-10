@@ -97,6 +97,10 @@ def menuAsistente(usuario):
     elif opcion ==2:
         l = csv.devolverPlatillos()
         mostrarPlatos('', l, usuario)
+    elif opcion == 4:
+        print('Sesion Cerrada')
+        print('')
+        iniciarSesion()
 
 def menuAdmin(usuario):
     print("""\n    1.) Agregar restaurante 
