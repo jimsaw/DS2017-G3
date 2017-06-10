@@ -96,6 +96,7 @@ def menuAsistente(usuario):
         menuAsistente(usuario)
     elif opcion ==2:
         l = csv.devolverPlatillos()
+        print('Lista de Platos disponibles en el restaurante:')
         mostrarPlatos('', l, usuario)
     elif opcion == 4:
         print('Sesion Cerrada')
@@ -171,8 +172,9 @@ def mostrarPlatos(categoria, listaPlatillos, usuario):
         list = []
         e = 1
         for i in listaPlatillos:
-            if i.getRestaurante == usuario.getRestaurante:
-                print(str(e)+' .)'+" Nombre del Plato: " + i.getNombre() + "         Restaurante: " + i.getRestaurante())
+            nuevoResta = usuario.getRestaurante().replace('\n','')
+            if i.getRestaurante() == nuevoResta:
+                print(str(e)+' .)'+" Nombre del Plato: " + i.getNombre() + "         Categoria: " + i.getCategoria())
                 list.append(i.getNombre())
                 e += 1
     return list
