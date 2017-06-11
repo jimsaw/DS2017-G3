@@ -1,6 +1,8 @@
 import usuario as usu
 import platillo as pla
 
+
+#Devuelve una lista de usuarios registrados en el sistema
 def devolverUsuarios():
     l =  []
     file = open('usuarios.csv')
@@ -11,6 +13,7 @@ def devolverUsuarios():
     file.close()
     return l
 
+#Devuelve una lista de platillos ingresados dentro del sistema
 def devolverPlatillos():
     l = []
     file = open('platillos.csv','r')
@@ -21,17 +24,9 @@ def devolverPlatillos():
             l.append(platillos)
     file.close()
     return l
-# file1 = open('usuarios.csv')
-# print(file1.readlines())
-# for line in file1:
-#     linea = line.split(';')
-#     usuario = linea[0]
-#     contraseña = linea[1]
-#     tipo = linea[2]
-#     print("Usuario: " + usuario + "\nContraseña: " + contraseña + "\nTipo: " + tipo)
-# etc, etc
-# file1.close()
 
+
+#Guarda un nuevo platillo dentro del sistema
 def escribirPlatillo(platillo):
     file = open('platillos.csv', 'a+',newline='')
     rest = platillo.getRestaurante().replace('\n','')
