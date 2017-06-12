@@ -44,3 +44,24 @@ class Platillo:
 
     def getImagen(self):
         return self.imagenes
+
+    def setNombre(self, nombre):
+        self.nombre = nombre
+
+    def setRestaurante(self, restaurante):
+        self.restaurante = restaurante
+
+    def setCategoria(self, categoria):
+            self.categoria = categoria
+
+    def setIngredientes(self, ingredientes):
+        self.ingredientes = ingredientes
+
+    def setDescripcion(self, descripcion):
+        self.descripcion = descripcion
+
+    def setServido(self, servido):
+        self.servido = servido
+
+    def setTipo(self, tipo):
+        self.tipo = tipo

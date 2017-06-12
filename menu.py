@@ -22,10 +22,12 @@ def menuCliente(usuario):
     print('')
     if opcion == 1:
         menuCategoria(usuario)
+        Retorno = str(input('Aplaste cualquier letra para regresar    '))
         print('Volviendo al menu principal..')
         menuCliente(usuario)
     elif opcion == 2:
         menuBusqueda()
+        Retorno = str(input('Aplaste cualquier letra para regresar    '))
         print('Volviendo al menu principal..')
         menuCliente(usuario)
     else:
@@ -58,8 +60,11 @@ def buscarPlato():
 
 def imprimirBusqueda(listaBusqueda):
     if len(listaBusqueda) != 0:
-        for j,plato in enumerate(listaBusqueda):
-            print(j+1,'.)'+ ' Nombre del plato: '+ plato.getNombre() + '          Restaurante: ' + plato.getRestaurante())
+        j = 1
+        for plato in listaBusqueda:
+            print('{:<} {:<70}'.format(str(j) + ' .)', 'Nombre del Plato: ' + plato.getNombre()),
+                  '{:<}'.format("Restaurante: " + plato.getRestaurante()))
+            j += 1
     else:
         print('No se encontro un resultado, por favor ingrese de nuevo')
         print('')
@@ -94,14 +99,81 @@ def menuAsistente(usuario):
     if opcion == 1:
         agregarPlatillo(usuario)
         menuAsistente(usuario)
-    elif opcion ==2:
+    elif opcion == 2:
         l = csv.devolverPlatillos()
         print('Lista de Platos disponibles en el restaurante:')
-        mostrarPlatos('', l, usuario)
+        lista = mostrarPlatos('', l, usuario)
+        print('')
+        print('¿Que platillo quiere ver?')
+        opcion2 = pedirOpcion(1, len(lista))
+        print('')
+        plato = mostrarPlatillos(l, lista[opcion2 - 1])
+        modificarPlato(usuario, plato)
+    elif opcion == 3:
+        menuCategoria(usuario)
+        Retorno = str(input('Aplaste cualquier letra para regresar    '))
+        print('Volviendo al menu principal..')
+        menuAsistente(usuario)
     elif opcion == 4:
         print('Sesion Cerrada')
         print('')
         iniciarSesion()
+
+
+def modificarPlato(usuario,plato):
+    opcion = str(input('¿Desea modificar el plato? Y/N   '))
+    opcion = opcion.upper()
+    print(opcion)
+    if opcion == 'Y':
+        print('')
+        print('Modificando plato..')
+        cambio = crearPlatoNuevo(plato)
+        csv.modificarArchivoPlato(cambio[1], cambio[0])
+        print('Plato modificado')
+        print('')
+        menuAsistente(usuario)
+    elif opcion == 'N':
+        print('Regresando al menu principal..')
+        print('')
+        menuAsistente(usuario)
+    else:
+        print('Respuesta incorrecta, ingrese de nuevo su respuesta')
+        modificarPlato(usuario, plato)
+
+
+def crearPlatoNuevo(plato):
+    Nombre = str(input('Ingrese el nuevo nombre del plato: '))
+    Restaurante = str(input('Ingrese el nuevo restaurante del plato: '))
+    Categoria = str(input('Ingrese la nueva categoria del plato: '))
+    Ingredientes = str(input('Ingrese los nuevos ingredientes del plato: '))
+    Descripcion = str(input('Ingrese la nueva descripcion del plato: '))
+    Servido = str(input('Ingrese la nueva forma de servir el plato: '))
+    Tipo = str(input('Ingrese el nuevo tipo del plato: '))
+    cambioNombre, cambioRestaurante, cambioCategoria, cambioIngredientes, cambioDescripcion, cambioServido, cambioTipo = 0, 0, 0, 0, 0, 0, 0
+    if Nombre != '':
+        plato.setNombre(Nombre)
+        cambioNombre = 1
+    if Restaurante != '':
+        plato.setRestaurante(Restaurante)
+        cambioRestaurante = 1
+    if Categoria != '':
+        plato.setCategoria(Categoria)
+        cambioCategoria = 1
+    if Ingredientes != '':
+        plato.setIngredientes(Ingredientes)
+        cambioIngredientes = 1
+    if Descripcion != '':
+        plato.setDescripcion(Descripcion)
+        cambioDescripcion = 1
+    if Servido != '':
+        plato.setServido(Servido)
+        cambioServido = 1
+    if Tipo != '':
+        plato.setTipo(Tipo)
+        cambioTipo = 1
+    lista = [cambioNombre, cambioRestaurante, cambioCategoria, cambioIngredientes, cambioDescripcion, cambioServido, cambioTipo]
+    return lista, plato
+
 
 def menuAdmin(usuario):
     print("""\n    1.) Agregar restaurante 
@@ -153,6 +225,8 @@ def listarCategoria(diccionarioCategorias):
     print("Estas son las opciones de categorias de platillos disponibles: ")
     lista = []
     for m, i in enumerate(diccionarioCategorias):
+        '''print('{:<}{:<70}'.format(str(m+1) + ' .)', 'Nombre del Plato: ' + i.getNombre()),
+              '{:<}'.format("Restaurante: " + i.getRestaurante()))'''
         print(m+1,'.)  ',i , '{:>30}'.format("Numero de platos: "+str(diccionarioCategorias[i])))
         lista.append(i)
     return m+1, lista
@@ -165,7 +239,8 @@ def mostrarPlatos(categoria, listaPlatillos, usuario):
         k = 1
         for i in listaPlatillos:
             if i.getCategoria() == categoria:
-                print(str(k)+' .)'+" Nombre del Plato: " + i.getNombre() + "         Restaurante: " + i.getRestaurante())
+                print('{:<} {:<70}'.format(str(k)+' .)', ' Nombre del Plato: '+ i.getNombre()),
+                      '{:<}'.format("Restaurante: "+ i.getRestaurante()))
                 list.append(i.getNombre())
                 k += 1
     else:
@@ -174,9 +249,11 @@ def mostrarPlatos(categoria, listaPlatillos, usuario):
         for i in listaPlatillos:
             nuevoResta = usuario.getRestaurante().replace('\n','')
             if i.getRestaurante() == nuevoResta:
-                print(str(e)+' .)'+" Nombre del Plato: " + i.getNombre() + "         Categoria: " + i.getCategoria())
+                print('{:<} {:<70}'.format(str(e)+' .)'," Nombre del Plato: " + i.getNombre()),
+                      '{:<}'.format('Categoria: ' + i.getCategoria()))
                 list.append(i.getNombre())
                 e += 1
+
     return list
 
 
@@ -184,6 +261,7 @@ def mostrarPlatillos(listaPlatillos, nombre):
     for i in listaPlatillos:
         if i.getNombre() == nombre:
             print(i)
+    return i
 
 
 def login(usuario, passw,lista):# la lista que ubicamos aqui es la que cargammos del archivo con la funcion devolver ususarioContrasena, es la lista inicial
