@@ -86,8 +86,8 @@ def menuCategoria(usuario):
     print('¿Que platillo quiere ver?')
     opcion2 = pedirOpcion(1, len(listplato))
     print('')
-    mostrarPlatillos(l, listplato[opcion2-1])
-
+    a = mostrarPlatillos(l, listplato[opcion2-1])
+    return a
 
 def menuAsistente(usuario):
     print("""\n    1.) Agregar platillo
@@ -110,7 +110,8 @@ def menuAsistente(usuario):
         plato = mostrarPlatillos(l, lista[opcion2 - 1])
         modificarPlato(usuario, plato)
     elif opcion == 3:
-        menuCategoria(usuario)
+        a = menuCategoria(usuario)
+        modificarPlato(usuario, a)
         Retorno = str(input('Aplaste cualquier letra para regresar    '))
         print('Volviendo al menu principal..')
         menuAsistente(usuario)
@@ -224,10 +225,9 @@ def busquedaCategoria(listaPlatillos):
 def listarCategoria(diccionarioCategorias):
     print("Estas son las opciones de categorias de platillos disponibles: ")
     lista = []
+    m = 0
     for m, i in enumerate(diccionarioCategorias):
-        '''print('{:<}{:<70}'.format(str(m+1) + ' .)', 'Nombre del Plato: ' + i.getNombre()),
-              '{:<}'.format("Restaurante: " + i.getRestaurante()))'''
-        print(m+1,'.)  ',i , '{:>30}'.format("Numero de platos: "+str(diccionarioCategorias[i])))
+        print(m+1, '.)  ', i , '{:>30}'.format("Numero de platos: "+str(diccionarioCategorias[i])))
         lista.append(i)
     return m+1, lista
 
