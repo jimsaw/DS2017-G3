@@ -24,10 +24,10 @@ def devolverPlatillos():
             l.append(platillos)
     file.close()
     return l
-<<<<<<< HEAD
-
-=======
->>>>>>> master
+# <<<<<<< HEAD
+#
+# =======
+# >>>>>>> master
 
 
 #Guarda un nuevo platillo dentro del sistema
