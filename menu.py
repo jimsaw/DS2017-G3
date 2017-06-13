@@ -46,7 +46,6 @@ def menuBusqueda():
     print('¿Que plato desea ver?')
     opcion = pedirOpcion(1, len(a))
     print('')
-<<<<<<< HEAD
     mostrarPlatillos(l, a[opcion-1].getNombre())
 
 
@@ -74,10 +73,7 @@ def imprimirBusqueda(listaBusqueda):
         print('')
         buscarPlato()
     print('')
-
-=======
     inout.mostrarPlatillos(l, a[opcion - 1].getNombre())
->>>>>>> master
 
 #Lista las categorias del platillo, mostrando tambien los platos disponibles e ingresand el usuario su pedid, le muestra su platillo
 def menuCategoria(usuario):
@@ -94,12 +90,9 @@ def menuCategoria(usuario):
     print('¿Que platillo quiere ver?')
     opcion2 = pedirOpcion(1, len(listplato))
     print('')
-<<<<<<< HEAD
     a = mostrarPlatillos(l, listplato[opcion2-1])
     return a
-=======
     inout.mostrarPlatillos(l, listplato[opcion2 - 1])
->>>>>>> master
 
 #Muestra el menu correspondiente al Asistente
 def menuAsistente(usuario):
@@ -116,7 +109,6 @@ def menuAsistente(usuario):
     elif opcion == 2:
         l = csv.devolverPlatillos()
         print('Lista de Platos disponibles en el restaurante:')
-<<<<<<< HEAD
         lista = mostrarPlatos('', l, usuario)
         print('')
         print('¿Que platillo quiere ver?')
@@ -130,15 +122,13 @@ def menuAsistente(usuario):
         Retorno = str(input('Aplaste cualquier letra para regresar    '))
         print('Volviendo al menu principal..')
         menuAsistente(usuario)
-=======
         inout.mostrarPlatos('', l, usuario)
->>>>>>> master
     elif opcion == 4:
         print('Sesion Cerrada')
         print('')
         se.iniciarSesion()
 
-<<<<<<< HEAD
+
 
 def modificarPlato(usuario,plato):
     opcion = str(input('¿Desea modificar el plato? Y/N   '))
@@ -195,9 +185,8 @@ def crearPlatoNuevo(plato):
     return lista, plato
 
 
-=======
+
 #Muestra el menu correspondiente al Administrador
->>>>>>> master
 def menuAdmin(usuario):
     print("""
     1.) Agregar restaurante 
@@ -218,7 +207,7 @@ def menuPrincipal(usuario):
         menuCliente(usuario)
 
 
-<<<<<<< HEAD
+
 def agregarPlatillo(usuario):
     print('Agregando Platillo..')
     nombre = str(input('Ingrese el nombre: '))
@@ -336,15 +325,5 @@ def convertirStringUsuario(nombre,listaobje):
     for i in listaobje:
         if nombre == i.getNombre():
             return i
-=======
 
-
-
-
-
-
-
-
-
->>>>>>> master
 
