@@ -2,6 +2,7 @@ import platillo as plat
 import csv
 import urllib.request
 import menu as me
+from PIL import Image
 
 #Devuelve diccionario -> clave: Categoria // valor : numero platos
 def busquedaCategoria(listaPlatillos):
@@ -120,3 +121,8 @@ def validarImagen(link):
         if link.endswith(elem):
             ban = 1
     return ban
+
+# Muestra la imagen correspondiente a al nombre dado
+def mostrarImagen(nombreImagen):
+    imag = Image.open(nombreImagen)
+    imag.show()

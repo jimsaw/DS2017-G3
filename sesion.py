@@ -29,7 +29,6 @@ def convertirStringUsuario(nombre,listaobje):
 
 #Inicia sesion
 def iniciarSesion():
-
     registeredUser = devolverUsuariosContrasena() #Lista con todos los usuarios y contraseñas, son los datos iniciales
     continuar = True
     print('Iniciando sesion..')
