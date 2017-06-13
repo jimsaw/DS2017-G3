@@ -1,15 +1,15 @@
-yapingacho;carreta;almuerzo;variado ;img;descripcion;comida caliente;plato fuerte
-guatita;carreta;almuerzo;variado;img1;descripcion;comida caliente;aperitivo
-ceviche;celex;merienda;variado;im3;descripcion;comida tibia;plato fuerte
-carne frita;edcom;almuerzo;carne y menestra;im4;descripcion;comida caliente;plato fuerte
-sopa crema de tomate;celex;merienda;tomate;im5;descripcion;comida caliente;aperitivo
-tacos de lechuga;edcom;merienda;lechuga;im6;descripcion;comida fria;postre
-papas al horno;carreta;desayuno;papas;im7;descripcion;comida fria;postre
-arroz con pollo frito;coca cola;merienda;pollo;im8;descripcion;comida caliente;plato fuerte
-estofado de carne;coca cola;almuerzo;carne de res;im9;descripcion;comida tibia;aperitivo
-pasta en una sola cacerola;carreta;desayuno;pasta;im10;descripcion;comida fria;postre
-quesadillas de espinaca picantes;celex;merienda;queso;im11;descripcion;comida fria;postre
-chile vegetariano;papas al horno 2;desayuno;chile;im12;descripcion;comida fria;plato fuerte
-salchipapas;yapingacho version2;merienda;no data;no data;descripcion;comida caliente;aperitivo
+yapingacho;carreta;almuerzo;variado ;default.jpg;descripcion;comida caliente;plato fuerte
+guatita;carreta;almuerzo;variado;default.jpg;descripcion;comida caliente;aperitivo
+ceviche;celex;merienda;variado;default.jpg;descripcion;comida tibia;plato fuerte
+carne frita;edcom;almuerzo;carne y menestra;default.jpg;descripcion;comida caliente;plato fuerte
+sopa crema de tomate;celex;merienda;tomate;default.jpg;descripcion;comida caliente;aperitivo
+tacos de lechuga;edcom;merienda;lechuga;default.jpg;descripcion;comida fria;postre
+papas al horno;carreta;desayuno;papas;default.jpg;descripcion;comida fria;postre
+arroz con pollo frito;coca cola;merienda;pollo;default.jpg;descripcion;comida caliente;plato fuerte
+estofado de carne;coca cola;almuerzo;carne de res;default.jpg;descripcion;comida tibia;aperitivo
+pasta en una sola cacerola;carreta;desayuno;pasta;default.jpg;descripcion;comida fria;postre
+quesadillas de espinaca picantes;celex;merienda;queso;default.jpg;descripcion;comida fria;postre
+chile vegetariano;papas al horno 2;desayuno;chile;default.jpg;descripcion;comida fria;plato fuerte
+
 
 

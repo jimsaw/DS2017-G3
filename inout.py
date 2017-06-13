@@ -42,9 +42,14 @@ def agregarPlatillo(usuario):
 
 # Imprime los platillos que tenga el parametro especificado en el nombre
 def mostrarPlatillos(listaPlatillos, nombre):
+    afirmativo = ["si", "SI", "Si", "sI", "s", "S", "Y", "yes", "y", "Yes"]
     for i in listaPlatillos:
         if i.getNombre() == nombre:
             print(i)
+            pregunta = input("Desea ver una imagen del platillo? [si/no] ")
+            if pregunta in afirmativo:
+                mostrarImagen(i.getImagen())
+
 
 # Imprime el menu resultante con todas las coincidencias de platillos de la busqueda
 def imprimirBusqueda(listaBusqueda):
