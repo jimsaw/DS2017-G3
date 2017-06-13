@@ -1,7 +1,7 @@
 import csv
-import inout
 import sesion as se
 import inout
+import usuario as usu
 
 #Valida el pedido de alguna opcion de ingreso para menu
 def pedirOpcion(a, b):
@@ -20,8 +20,9 @@ def menuCliente(usuario):
     print("""
     1.) Listar categorías de platos
     2.) Buscar plato 
-    3.) Cerrar sesión""")
-    opcion = pedirOpcion(1,3)
+    3.) Cerrar sesión
+    4.) Salir del sistema""")
+    opcion = pedirOpcion(1,4)
     print('')
     if opcion == 1:
         menuCategoria(usuario)
@@ -33,7 +34,7 @@ def menuCliente(usuario):
         Retorno = str(input('Aplaste cualquier letra para regresar    '))
         print('Volviendo al menu principal..')
         menuCliente(usuario)
-    else:
+    elif opcion == 3:
         print('Sesion Cerrada')
         print('')
         se.iniciarSesion()
@@ -167,6 +168,21 @@ def menuAdmin(usuario):
     3.) Agregar usuario
     4.) Salir del sistema.""")
     opcion = pedirOpcion(1,4)
+    if opcion == 1:
+        menuAdmin(usuario)
+    elif opcion == 2:
+        menuAdmin(usuario)
+    elif opcion == 3:
+        tipos = ["Administrador", "Asistente", "Cliente"]
+        nombre = input("Ingrese nombre: ")
+        contra = input("Ingrese contraseña: ")
+        tipo = input("Ingrese tipo [administrador, asistente, cliente]: ").capitalize()
+        while tipo not in tipos:
+            tipo = input("Error. Tipo inválido, ingrese de nuevo el tipo de usuario: ")
+        restaurante = input("Ingrese restaurante: ")
+        usuario = usu.Usuario(nombre, contra, tipo, restaurante)
+        csv.guardarUsuario(usuario)
+        menuAdmin(usuario)
 
 #Menu principal
 def menuPrincipal(usuario):

@@ -13,7 +13,16 @@ def devolverUsuarios():
     file.close()
     return l
 
-#Devuelve una lista de platillos ingresados dentro del sistema
+def guardarUsuario(usuario):
+    l = devolverUsuarios()
+    l.append(usuario)
+    file = open("usuarios.csv", "w")
+    for us in l:
+        file.write(";".join([us.getNombre(), us.getContrasena(), us.getTipo(), us.getRestaurante()]))
+    file.write("\n")
+    file.close()
+
+# Devuelve una lista de platillos ingresados dentro del sistema
 def devolverPlatillos():
     l = []
     file = open('platillos.csv','r')
