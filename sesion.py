@@ -1,5 +1,6 @@
 import csv
 import menu
+import os
 
 # la lista que ubicamos aqui es la que cargammos del archivo con la funcion devolver ususarioContrasena, es la lista inicial
 def login(usuario, passw,lista):
@@ -29,6 +30,7 @@ def convertirStringUsuario(nombre,listaobje):
 
 #Inicia sesion
 def iniciarSesion():
+    os.system("clear")
     registeredUser = devolverUsuariosContrasena() #Lista con todos los usuarios y contraseñas, son los datos iniciales
     continuar = True
     print('Iniciando sesion..')
