@@ -1,67 +1,67 @@
 class Platillo:
-    nombre = ""
-    restaurante = ""
-    categoria = ""
-    ingredientes = ""
-    imagenes = ""
-    descripcion = ""
-    servido = ''
-    tipo = ''
+    __nombre = ""
+    __restaurante = ""
+    __categoria = ""
+    __ingredientes = ""
+    __imagenes = ""
+    __descripcion = ""
+    __servido = ''
+    __tipo = ''
 
     def __init__(self, nombre, restaurante, categoria, ingredientes, imagenes, descripcion,servido,tipo):
-        self.nombre = nombre
-        self.restaurante = restaurante
-        self.categoria = categoria
-        self.ingredientes = ingredientes
-        self.imagenes = imagenes
-        self.descripcion = descripcion
-        self.servido = servido
-        self.tipo = tipo
+        self.__nombre = nombre
+        self.__restaurante = restaurante
+        self.__categoria = categoria
+        self.__ingredientes = ingredientes
+        self.__imagenes = imagenes
+        self.__descripcion = descripcion
+        self.__servido = servido
+        self.__tipo = tipo
 
     def __str__(self):
-        return 'Nombre del platillo: %s \nRestaurante: %s \nCategoria: %s \nIngredientes: %s \nDescripcion: %s \nServido: %s \nTipo: %s' % (self.nombre, self.restaurante, self.categoria, self.ingredientes, self.descripcion, self.servido, self.tipo)
+        return 'Nombre del platillo: %s \nRestaurante: %s \nCategoria: %s \nIngredientes: %s \nDescripcion: %s \nServido: %s \nTipo: %s' % (self.__nombre, self.__restaurante, self.__categoria, self.__ingredientes, self.__descripcion, self.__servido, self.__tipo)
 
     def getCategoria(self):
-        return self.categoria
+        return self.__categoria
 
     def getNombre(self):
-        return self.nombre
+        return self.__nombre
 
     def getRestaurante(self):
-        return self.restaurante
+        return self.__restaurante
 
     def getDescripcion(self):
-        return self.descripcion
+        return self.__descripcion
 
     def getIngredientes(self):
-        return self.ingredientes
+        return self.__ingredientes
 
     def getServido(self):
-        return self.servido
+        return self.__servido
 
     def getTipo(self):
-        return self.tipo
+        return self.__tipo
 
     def getImagen(self):
-        return self.imagenes
+        return self.__imagenes
 
     def setNombre(self, nombre):
-        self.nombre = nombre
+        self.__nombre = nombre
 
     def setRestaurante(self, restaurante):
-        self.restaurante = restaurante
+        self.__restaurante = restaurante
 
     def setCategoria(self, categoria):
-            self.categoria = categoria
+            self.__categoria = categoria
 
     def setIngredientes(self, ingredientes):
-        self.ingredientes = ingredientes
+        self.__ingredientes = ingredientes
 
     def setDescripcion(self, descripcion):
-        self.descripcion = descripcion
+        self.__descripcion = descripcion
 
     def setServido(self, servido):
-        self.servido = servido
+        self.__servido = servido
 
     def setTipo(self, tipo):
-        self.tipo = tipo
+        self.__tipo = tipo
